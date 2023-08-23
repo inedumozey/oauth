@@ -50,7 +50,7 @@ Set up your consent screen and client_id and client_secret on [google developmen
 
 
 ### Github
-Set up your consent screen and client_id and client_secret on [google development console](https://console.cloud.google.com/)
+Set up your consent screen and client_id and client_secret on [github developer settings](https://github.com/settings/developers)
 
 ##### Front End
 ```
