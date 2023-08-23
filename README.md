@@ -27,7 +27,7 @@ Set up your consent screen and client_id and client_secret on [google developmen
 
 ##### Back End
 ```
-    // retrieve the body sent from the client
+    // retrieve the code sent from the client
     // use the code and get accesstoken
 
     // get accesstoken
@@ -69,7 +69,7 @@ Set up your consent screen and client_id and client_secret on [github developer 
 ##### Back End
 ```
     // AT THE BACKEND
-    // retrieve the body sent from the client
+    // retrieve the code sent from the client
     // use the code and get accesstoken
 
     // get accesstoken
