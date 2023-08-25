@@ -1,6 +1,8 @@
+const get_user = require('./get_user')
+
 const axios = require('axios')
 
-async function get_accesstoken(options) {
+async function get_user2(options) {
     const url_get_accesstoken = "https://github.com/login/oauth/access_token"
 
     if (!options.client_secret) throw new Error("client_secret is required")
@@ -17,8 +19,11 @@ async function get_accesstoken(options) {
         if (data.includes('error')) {
             throw new Error(data)
         }
-        const token = data.split("=")[1].split("&")[0]
-        return token
+        const accesstoken = data.split("=")[1].split("&")[0]
+
+        // fetch user data
+        const { data: user } = await get_user({ accesstoken })
+        return user;
     }
     catch (err) {
         if (err.response) {
@@ -42,5 +47,4 @@ async function get_accesstoken(options) {
     }
 }
 
-
-module.exports = get_accesstoken;
+module.exports = get_user2;

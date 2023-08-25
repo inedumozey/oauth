@@ -1,24 +1,29 @@
 const axios = require('axios')
+const get_user = require('./get_user')
 
-async function get_accesstoken(options) {
-    const url_get_accesstoken = "https://github.com/login/oauth/access_token"
+async function get_user2(options) {
+    const url_get_accesstoken = "https://www.googleapis.com/oauth2/v4/token"
+    // OR const url_get_accesstoken = "https://accounts.google.com/o/oauth2/token"
 
     if (!options.client_secret) throw new Error("client_secret is required")
+    if (!options.redirect_uri) throw new Error("redirect_uri is required")
     if (!options.code) throw new Error("code is required")
     if (!options.client_id) throw new Error("client_id is required")
 
     try {
         const body = {
+            "grant_type": "authorization_code",
             "code": options.code,
             "client_id": options.client_id,
-            "client_secret": options.client_secret
+            "client_secret": options.client_secret,
+            "redirect_uri": options.redirect_uri
         }
-        const { data } = await axios.post(url_get_accesstoken, body)
-        if (data.includes('error')) {
-            throw new Error(data)
-        }
-        const token = data.split("=")[1].split("&")[0]
-        return token
+        const { data } = await axios.post(url_get_accesstoken, body, { withCredentials: false })
+        const accesstoken = data.access_token
+
+        // fetch user data
+        const { data: user } = await get_user({ accesstoken })
+        return user;
     }
     catch (err) {
         if (err.response) {
@@ -42,5 +47,4 @@ async function get_accesstoken(options) {
     }
 }
 
-
-module.exports = get_accesstoken;
+module.exports = get_user2;

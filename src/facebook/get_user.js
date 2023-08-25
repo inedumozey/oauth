@@ -2,27 +2,23 @@ const axios = require('axios')
 
 async function get_user(options) {
     try {
-        const url_get_user = "https://api.github.com/user"
+        const url_get_user = `https://graph.facebook.com/v2.9/me?fields=email,name,picture&access_token=${options.accesstoken}`
 
         // use the access token to get user data
-        const { data } = await axios.get(url_get_user, {
-            headers: {
-                Authorization: `Bearer ${options.accesstoken}`
-            }
-        })
+        const { data } = await axios.get(url_get_user)
         const user = {
             name: data.name,
-            email: data.email,
-            picture: data.avatar_url,
-            id: data.id
+            picture: data.picture.data.url,
+            id: data.id,
+            email: data.email
         }
         return { data: user };
     }
     catch (err) {
         if (err.response) {
             if (err.response.data) {
-                if (err.response.data.error || err.response.data.error_description) {
-                    const msg = `${err.response.data.error}, ${err.response.data.error_description}`
+                if (err.response.data.error) {
+                    const msg = `${err.response.data.error.message}`
                     throw Error(msg)
                 }
                 else {
@@ -39,5 +35,4 @@ async function get_user(options) {
         }
     }
 }
-
 module.exports = get_user;
