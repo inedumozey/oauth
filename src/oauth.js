@@ -22,6 +22,12 @@ const get_accesstoken_twitter = require('./twitter/get_accesstoken')
 const get_user_twitter = require('./twitter/get_user')
 const get_user2_twitter = require('./twitter/get_user2')
 
+// twitter
+const open_consent_screen_instagram = require('./instagram/open_consent_screen')
+const get_accesstoken_instagram = require('./instagram/get_accesstoken')
+const get_user_instagram = require('./instagram/get_user')
+const get_user2_instagram = require('./instagram/get_user2')
+
 class Oauth {
     constructor() { }
 
@@ -138,6 +144,37 @@ class Oauth {
         },
         get_user2(options) {
             return get_user2_twitter({
+                redirect_uri: options?.redirect_uri,
+                client_id: options?.client_id,
+                client_secret: options?.client_secret,
+                code: options?.code,
+            })
+        },
+    }
+
+    facebook = {
+        open_consent_screen(options) {
+            return open_consent_screen_instagram({
+                redirect_uri: options?.redirect_uri,
+                client_id: options?.client_id,
+                state: options?.state
+            })
+        },
+        get_accesstoken(options) {
+            return get_accesstoken_instagram({
+                redirect_uri: options?.redirect_uri,
+                client_id: options?.client_id,
+                client_secret: options?.client_secret,
+                code: options?.code,
+            })
+        },
+        get_user(options) {
+            return get_user_instagram({
+                accesstoken: options?.accesstoken
+            })
+        },
+        get_user2(options) {
+            return get_user2_instagram({
                 redirect_uri: options?.redirect_uri,
                 client_id: options?.client_id,
                 client_secret: options?.client_secret,

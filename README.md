@@ -25,7 +25,7 @@ Set up your consent screen and client_id and client_secret on [google developmen
     const googleLogin = () => {
         oauth.google.open_consent_screen({
             client_id: process.env.NEXT_PUBLIC_CLIENT_ID
-            redirect_uri: process.env.NEXT_PUBLIC_CLIENT_ID
+            redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI
         })
     }
     // call this function googleLogin on a click of a button (Login with google)
