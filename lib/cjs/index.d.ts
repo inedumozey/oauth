@@ -1,2 +1,2 @@
-import Oauth from './oauth';
+import Oauth from "./oauth";
 export default Oauth;

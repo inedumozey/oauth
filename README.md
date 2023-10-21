@@ -7,7 +7,7 @@
 
 ## Usage
 ```
-    const Oauth = require('@mozeyinedu/oauth);
+    const Oauth = require('@mozeyinedu/oauth).default;
     const oauth = new Oauth()
 
     // OR

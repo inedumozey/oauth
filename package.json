@@ -1,39 +1,22 @@
 {
   "name": "@mozeyinedu/oauth",
-  "version": "0.0.8",
-  "description": "Social Media Login",
-  "module": "lib/esm/index.js",
-  "main": "lib/cjs/index.js",
-  "scripts": {
-    "build": "rm -rf lib/ && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module CommonJs --outDir lib/cjs"
-  },
-  "keywords": [
-    "Social Media Login",
-    "google login",
-    "github login",
-    "gitlab login",
-    "twitter login",
-    "linkedIn login",
-    "instagram login",
-    "microsoft login",
-    "apple login",
-    "discord login"
+  "version": "0.0.3",
+  "description": "",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "files": [
+    "lib/"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/inedumozey/oauth.git"
+  "scripts": {
+    "build": "rm -rf lib/ && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "publish": "npm publish --access public",
+    "push": "git add . && git commit -m 'updated' && git push origin master"
   },
-  "author": "DrMo",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/inedumozey/oauth/issues"
-  },
-  "homepage": "https://github.com/inedumozey/oauth#readme",
-  "dependencies": {
-    "@types/node": "^20.8.7",
-    "axios": "^1.4.0"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.2",
+    "typescript": "^5.2.2"
   }
 }
- 

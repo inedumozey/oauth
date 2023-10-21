@@ -25,9 +25,7 @@ import get_user2_twitter from './twitter/get_user2'
 import { IOption } from './type'
 
 class Oauth {
-    constructor() { }
-
-    google = {
+    google: any = {
         open_consent_screen(options: IOption) {
             return open_consent_screen_google({
                 redirect_uri: options?.redirect_uri,
@@ -57,7 +55,7 @@ class Oauth {
         },
     }
 
-    github = {
+    github: any = {
         open_consent_screen(options: IOption) {
             return open_consent_screen_github({
                 redirect_uri: options?.redirect_uri,
@@ -87,7 +85,7 @@ class Oauth {
         },
     }
 
-    facebook = {
+    facebook: any = {
         open_consent_screen(options: IOption) {
             return open_consent_screen_facebook({
                 redirect_uri: options?.redirect_uri,
@@ -118,7 +116,7 @@ class Oauth {
         },
     }
 
-    twitter = {
+    twitter: any = {
         open_consent_screen(options: IOption) {
             return open_consent_screen_twitter({
                 redirect_uri: options?.redirect_uri,
