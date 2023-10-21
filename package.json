@@ -1,10 +1,13 @@
 {
   "name": "@mozeyinedu/oauth",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Social Media Login",
-  "main": "index.js",
+  "module": "lib/esm/index.js",
+  "main": "lib/cjs/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf lib/ && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJs --outDir lib/cjs"
   },
   "keywords": [
     "Social Media Login",
@@ -29,6 +32,8 @@
   },
   "homepage": "https://github.com/inedumozey/oauth#readme",
   "dependencies": {
+    "@types/node": "^20.8.7",
     "axios": "^1.4.0"
   }
 }
+ 
