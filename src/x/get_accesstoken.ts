@@ -15,8 +15,7 @@ type DataType = {
 };
 
 async function get_accesstoken(options: IOption) {
-  const url_get_accesstoken: string =
-    "https://api.twitter.com/2/oauth2/v4/token";
+  const url_get_accesstoken: string = "https://api.x.com/2/oauth2/v4/token";
 
   if (!options.client_secret) throw new Error("client_secret is required");
   if (!options.redirect_uri) throw new Error("redirect_uri is required");

@@ -7,3 +7,17 @@ export interface IOption {
     state?: string;
     scope?: string;
 }
+export interface DataType {
+    data: {
+        access_token?: string;
+        name?: string;
+        avatar_url?: string;
+        picture: {
+            data?: {
+                url?: string;
+            };
+        };
+        id?: string;
+        email?: string;
+    };
+}

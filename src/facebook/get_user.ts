@@ -9,7 +9,7 @@ async function get_user(options: IOption) {
     const { data }: DataType = await axios.get(url_get_user);
     const user = {
       name: data.name,
-      picture: data.picture.data.url,
+      picture: data?.picture?.data?.url,
       id: data.id,
       email: data.email,
     };

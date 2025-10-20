@@ -13,7 +13,7 @@ export interface DataType {
     access_token?: string;
     name?: string;
     avatar_url?: string;
-    picture?: {
+    picture: {
       data?: {
         url?: string;
       };

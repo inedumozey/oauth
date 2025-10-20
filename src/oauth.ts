@@ -16,11 +16,11 @@ import get_accesstoken_facebook from "./facebook/get_accesstoken";
 import get_user_facebook from "./facebook/get_user";
 import get_user2_facebook from "./facebook/get_user2";
 
-// twitter
-import open_consent_screen_twitter from "./twitter/open_consent_screen";
-import get_accesstoken_twitter from "./twitter/get_accesstoken";
-import get_user_twitter from "./twitter/get_user";
-import get_user2_twitter from "./twitter/get_user2";
+// x
+import open_consent_screen_x from "./x/open_consent_screen";
+import get_accesstoken_x from "./x/get_accesstoken";
+import get_user_x from "./x/get_user";
+import get_user2_x from "./x/get_user2";
 
 import { IOption } from "./type";
 
@@ -116,15 +116,15 @@ class Oauth {
     },
   };
 
-  twitter: any = {
+  x: any = {
     open_consent_screen(options: IOption) {
-      return open_consent_screen_twitter({
+      return open_consent_screen_x({
         redirect_uri: options?.redirect_uri,
         client_id: options?.client_id,
       });
     },
     get_accesstoken(options: IOption) {
-      return get_accesstoken_twitter({
+      return get_accesstoken_x({
         redirect_uri: options?.redirect_uri,
         client_id: options?.client_id,
         client_secret: options?.client_secret,
@@ -132,12 +132,12 @@ class Oauth {
       });
     },
     get_user(options: IOption) {
-      return get_user_twitter({
+      return get_user_x({
         accesstoken: options?.accesstoken,
       });
     },
     get_user2(options: IOption) {
-      return get_user2_twitter({
+      return get_user2_x({
         redirect_uri: options?.redirect_uri,
         client_id: options?.client_id,
         client_secret: options?.client_secret,

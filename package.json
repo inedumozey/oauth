@@ -1,6 +1,6 @@
 {
   "name": "@mozeyinedu/oauth",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -20,6 +20,6 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@types/axios": "^0.9.36"
+    "axios": "^1.12.2"
   }
 }
