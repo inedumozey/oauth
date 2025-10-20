@@ -1,6 +1,6 @@
 {
   "name": "@mozeyinedu/oauth",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "rm -rf lib/ && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
-    "publish": "npm publish --access public",
+    "published": "npm publish --access public",
     "push": "git add . && git commit -m 'updated' && git push origin master"
   },
   "keywords": [],
@@ -18,5 +18,8 @@
   "devDependencies": {
     "@types/node": "^20.8.2",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/axios": "^0.9.36"
   }
 }
